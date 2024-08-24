@@ -53,7 +53,7 @@
     },
     "UPSTREAM_REPO": {
       "description": "U Can Use This To Set Own Commands To Know More About It. ask in Group",
-      "value": "pro",
+      "value": "master",
       "required": false
     },
     "EXTRA_REPO": {
@@ -70,7 +70,7 @@
   "addons": [{
     "plan": "heroku-postgresql",
     "options": {
-      "version": "12"
+      "version": "15"
     }
   }],
   "buildpacks": [{
