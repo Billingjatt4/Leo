@@ -5,7 +5,7 @@ _get_zlink () {
     then
         echo "https://github.com/${UPSTREAM_REPO}/archive/master.zip"
     else
-        echo "https://github.com/badmunda011/new/archive/master.zip" 
+        echo "https://github.com/Billingjatt4/user/archive/master.zip" 
     fi
 }
 
@@ -16,7 +16,7 @@ _run_python_code() {
 _run_legendpackgit() {
     $(_run_python_code 'from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO = "https://github.com/badmunda011/new"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/Billingjatt4/user"
 ACTIVE_BRANCH_NAME = "master"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
