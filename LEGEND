@@ -1,46 +1,13 @@
 #!/bin/bash
 
 _get_zlink () {
-    local regex
-    regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "pro" ]]
+    if [[ $GIT_REPO ]]
     then
-        echo "https://github.com/badmunda011/new" | base64 -d
-    elif [[ $UPSTREAM_REPO == "multi" ]]
-    then
-        echo "https://github.com/badmunda011/new" | base64 -d
-    elif [[ $UPSTREAM_REPO =~ $regex ]]
-    then
-        if [[ $UPSTREAM_REPO_BRANCH ]]
-        then
-            echo "${UPSTREAM_REPO}/archive/${UPSTREAM_REPO_BRANCH}.zip"
-        else
-            echo "${UPSTREAM_REPO}/archive/master.zip"
-        fi
+        echo "https://github.com/${GIT_REPO}/archive/master.zip"
     else
-        echo "https://github.com/badmunda011/new" | base64 -d
+        echo "https://github.com/badmunda011/new/archive/master.zip" 
     fi
 }
-
-_get_repolink () {
-    local regex
-    local rlink
-    regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "pro" ]]
-    then
-        rlink=`echo "https://github.com/badmunda011/new" | base64 -d`
-    elif [[ $UPSTREAM_REPO == "multi" ]]
-    then
-        rlink=`echo "https://github.com/badmunda011/new" | base64 -d`
-    elif [[ $UPSTREAM_REPO =~ $regex ]]
-    then
-        rlink=`echo "${UPSTREAM_REPO}"`
-    else
-        rlink=`echo "https://github.com/badmunda011/new" | base64 -d`
-    fi
-    echo "$rlink"
-}
-
 
 _run_python_code() {
     python3${pVer%.*} -c "$1"
@@ -87,7 +54,7 @@ _start_bot () {
     _run_legendgit
     python3 ../setup/updater.py ../requirements.txt requirements.txt
     chmod -R 755 bin
-    echo "    Starting LegendUserBot    "
+    echo "    UserBot    "
     python3 -m Legendbot
 }
 
